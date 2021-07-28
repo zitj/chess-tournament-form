@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,900&display=swap");
 body {
-  background: #e0dfdf;
+  background: #3b3937;
   font-family: 'Roboto', sans-serif;
 }
 
 form {
   width: 300px;
-  background: #afafaf;
+  background: #3b3937;
   padding: 3em;
   position: absolute;
   top: 50%;
@@ -14,10 +14,27 @@ form {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   border-radius: 20px;
+  -webkit-box-shadow: -3px -3px 10px #ffffff10, 3px 3px 10px #0000004d;
+          box-shadow: -3px -3px 10px #ffffff10, 3px 3px 10px #0000004d;
+}
+
+form #formHeading {
+  font-weight: 400;
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.2em;
+  text-transform: uppercase;
 }
 
 .inputHolder {
   margin-bottom: 10px;
+}
+
+label,
+button,
+p,
+input {
+  color: white;
 }
 
 label,
@@ -35,37 +52,61 @@ label {
   margin-bottom: 0;
   padding-bottom: 8px;
   font-size: 14px;
+  font-weight: 300;
 }
 
 input {
   margin-top: 0;
+  background: #3b3937;
+  -webkit-box-shadow: inset -3px -3px 3px #ffffff13, inset 3px 3px 3px #0000004d;
+          box-shadow: inset -3px -3px 3px #ffffff13, inset 3px 3px 3px #0000004d;
 }
 
 button {
-  background: #287e28;
+  background: #3b3937;
+  -webkit-box-shadow: -3px -3px 3px #ffffff13, 3px 3px 3px #0000004d;
+          box-shadow: -3px -3px 3px #ffffff13, 3px 3px 3px #0000004d;
   color: white;
   margin-top: 30px;
   width: 285px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+button:active {
+  opacity: 1;
 }
 
 .invalid {
-  border: 1px solid red;
+  background: rgba(205, 50, 50, 0.219);
 }
 
 .valid {
-  border: 1px solid green;
+  background: rgba(153, 205, 50, 0.144);
 }
 
 input + span {
+  display: block;
   opacity: 0;
   margin-left: 8px;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   font-size: 10px;
-  color: #a12121;
+  color: rgba(255, 90, 90, 0.801);
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
 }
 
 input.invalid + span {
   opacity: 1;
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
 }
 /*# sourceMappingURL=style.css.map */

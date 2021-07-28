@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<form action="submit" method="">
-			<p>Пријава</p>
+			<p id="formHeading">Пријава за турнир</p>
 			<div class="inputHolder">
 				<label for="name">Име и презиме</label>
 				<input type="text" name="name" placeholder="Унесите име и презиме" />
@@ -26,7 +26,7 @@
 				<input type="email" name="email" placeholder="primer@gmail.com" />
 				<span>Email мора садржати симбол @ нпр. korisnik@gmail.com</span>
 			</div>
-			<button type="submit">Пријави се</button>
+			<button type="submit">ПОШАЉИ</button>
 		</form>
 	</body>
 </html>
