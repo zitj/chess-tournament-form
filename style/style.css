@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,900&display=swap");
 body {
   background: #e0dfdf;
+  font-family: 'Roboto', sans-serif;
 }
 
 form {
   width: 300px;
-  background: #d88787;
+  background: #afafaf;
   padding: 3em;
   position: absolute;
   top: 50%;
@@ -12,6 +14,10 @@ form {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   border-radius: 20px;
+}
+
+.inputHolder {
+  margin-bottom: 10px;
 }
 
 label,
@@ -25,8 +31,14 @@ button {
   outline: none;
 }
 
+label {
+  margin-bottom: 0;
+  padding-bottom: 8px;
+  font-size: 14px;
+}
+
 input {
-  margin-bottom: 15px;
+  margin-top: 0;
 }
 
 button {
@@ -46,6 +58,11 @@ button {
 
 input + span {
   opacity: 0;
+  margin-left: 8px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  font-size: 10px;
+  color: #a12121;
 }
 
 input.invalid + span {
