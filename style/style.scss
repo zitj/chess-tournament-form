@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,900&display=swap');
 @import 'variables';
+@import 'animation';
 
 body {
 	background: $chrome;
@@ -53,9 +54,11 @@ input {
 	margin-top: 0;
 	background: $chrome;
 	box-shadow: inset -3px -3px 3px #ffffff13, inset 3px 3px 3px #0000004d;
+	&.shake {
+		animation: shaking 0.2s;
+	}
 }
 button {
-	// background-image: linear-gradient(to right, $chrome, #493838, $chrome);
 	background: $chrome;
 	box-shadow: -3px -3px 3px #ffffff13, 3px 3px 3px #0000004d;
 	color: rgb(107, 106, 106);
@@ -67,6 +70,14 @@ button {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	transition: 0.2s ease-in-out;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+
 	&:hover {
 		opacity: 0.7;
 	}
@@ -83,7 +94,6 @@ button {
 	background: rgba(205, 50, 50, 0.219);
 }
 .valid {
-	// border: 2px solid rgba(153, 205, 50, 0.212);
 	background: rgba(153, 205, 50, 0.144);
 }
 
