@@ -20,7 +20,7 @@ form {
 		font-weight: 400;
 		margin-top: 0;
 		text-align: center;
-		font-size: 1.2em;
+		font-size: 1.1em;
 		text-transform: uppercase;
 	}
 }
@@ -55,10 +55,10 @@ input {
 	box-shadow: inset -3px -3px 3px #ffffff13, inset 3px 3px 3px #0000004d;
 }
 button {
+	// background-image: linear-gradient(to right, $chrome, #493838, $chrome);
 	background: $chrome;
-	// background-image: linear-gradient(to right, $chrome, #565f44, $chrome);
 	box-shadow: -3px -3px 3px #ffffff13, 3px 3px 3px #0000004d;
-	color: white;
+	color: rgb(107, 106, 106);
 	margin-top: 30px;
 	width: 285px;
 	font-size: 1em;
@@ -66,11 +66,16 @@ button {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 2px;
+	transition: 0.2s ease-in-out;
 	&:hover {
 		opacity: 0.7;
 	}
 	&:active {
 		opacity: 1;
+	}
+	&.valid {
+		background-image: linear-gradient(to right, $chrome, #565f44, $chrome);
+		color: white;
 	}
 }
 

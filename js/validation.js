@@ -4,11 +4,11 @@ const btn = document.querySelector('button');
 const inputs = document.querySelectorAll('input');
 const form = document.querySelector('form');
 let formValue = {};
-let formValid = true;
+let formValid = false;
 
 const patterns = {
 	name: /^([A-Za-z.!@?#"$%&:;()đšžćč *\+,\/;\-=[\\\]\^_{|}<>\u0400-\u04FF]){2,} ([A-Za-z.!@?#"$%&:;()đšžćč *\+,\/;\-=[\\\]\^_{|}<>\u0400-\u04FF]){3,}$/i,
-	phone: /^(\+381) ?(60|61|62|63|64|65|66|69|67|68|16) ?\d{6,}$/,
+	phone: /^(\+381) ?(60|61|62|63|64|65|66|69|67|68|16) ?(\d{1,}) ?(\d{1,}) ?(\d{1,})?$/,
 	email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,9})?$/,
 };
 
@@ -21,10 +21,22 @@ const validate = (field, regex) => {
 	if (field.value === '') {
 		field.classList.remove('invalid');
 	}
-	if (formValid) {
-		btn.style.display = 'block';
+};
+
+const formValidityCheck = () => {
+	let counter = 0;
+
+	for (let i = 0; i < inputs.length; i++) {
+		if (inputs[i].classList.value === 'valid') {
+			counter++;
+		}
+	}
+	if (counter === 3) {
+		formValid = true;
+		btn.classList.add('valid');
 	} else {
-		btn.style.display = 'none';
+		formValid = false;
+		btn.classList.remove('valid');
 	}
 };
 
@@ -33,6 +45,7 @@ inputs.forEach((input) => {
 		clearTimeout(typingTimer);
 		typingTimer = setTimeout(() => {
 			validate(e.target, patterns[e.target.attributes.name.value]);
+			formValidityCheck();
 		}, 300);
 
 		formValue[e.target.attributes.name.value] = e.target.value;
@@ -43,11 +56,9 @@ inputs.forEach((input) => {
 	});
 });
 
-if (!formValid) {
-	btn.style.display = 'none';
-}
-
 btn.addEventListener('click', (e) => {
 	e.preventDefault();
-	console.log(formValue);
+	if (formValid) {
+		form.submit();
+	}
 });
