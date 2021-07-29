@@ -9,8 +9,11 @@
 		<title>ПРИЈАВА ЗА ТУРНИР</title>
 	</head>
 	<body>
-		<form action="submit" method="">
-			<p id="formHeading">Пријава за турнир у шаху</p>
+	
+
+		<form action="insert.php" method="post">
+			<p id="formHeading">Пријава за турнир у шаху<br><span>Лесковачки  културни  центар</span></p>
+
 			<div class="inputHolder">
 				<label for="name">Име и презиме</label>
 				<input type="text" name="name" placeholder="Унесите име и презиме" class="input"/>

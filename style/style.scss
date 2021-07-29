@@ -23,6 +23,12 @@ form {
 		text-align: center;
 		font-size: 1.1em;
 		text-transform: uppercase;
+		span {
+			font-size: 0.7em;
+			font-weight: 200;
+			word-spacing: 0.2em;
+			color: rgba(255, 255, 255, 0.336);
+		}
 	}
 }
 .inputHolder {

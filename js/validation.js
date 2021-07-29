@@ -1,5 +1,3 @@
-let typingTimer;
-
 const btn = document.querySelector('button');
 const inputs = document.querySelectorAll('input');
 const form = document.querySelector('form');
@@ -40,6 +38,18 @@ const formValidityCheck = () => {
 	}
 };
 
+const addingInvalidClassOnSubmit = () => {
+	inputs.forEach((input) => {
+		if (!input.classList.contains('valid')) input.classList.add('invalid');
+		if (input.classList.contains('invalid')) {
+			input.classList.add('shake');
+			input.addEventListener('animationend', () => {
+				input.classList.remove('shake');
+			});
+		}
+	});
+};
+
 inputs.forEach((input) => {
 	input.addEventListener('keyup', (e) => {
 		validate(e.target, patterns[e.target.attributes.name.value]);
@@ -53,14 +63,6 @@ btn.addEventListener('click', (e) => {
 	if (formValid) {
 		form.submit();
 	} else {
-		inputs.forEach((input) => {
-			if (!input.classList.contains('valid')) input.classList.add('invalid');
-			if (input.classList.contains('invalid')) {
-				input.classList.add('shake');
-				input.addEventListener('animationend', () => {
-					input.classList.remove('shake');
-				});
-			}
-		});
+		addingInvalidClassOnSubmit();
 	}
 });

@@ -71,6 +71,13 @@ form #formHeading {
   text-transform: uppercase;
 }
 
+form #formHeading span {
+  font-size: 0.7em;
+  font-weight: 200;
+  word-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.336);
+}
+
 .inputHolder {
   margin-bottom: 10px;
 }
