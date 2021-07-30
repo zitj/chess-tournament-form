@@ -79,7 +79,7 @@ body {
 form {
   width: 300px;
   background: #19537b;
-  padding: 3em;
+  padding: 3em 3em 4em 3em;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -150,7 +150,7 @@ button {
   background: #19537b;
   -webkit-box-shadow: -3px -3px 3px #ffffff13, 3px 3px 3px #0000004d;
           box-shadow: -3px -3px 3px #ffffff13, 3px 3px 3px #0000004d;
-  color: #267ebb;
+  color: white;
   margin-top: 30px;
   width: 285px;
   font-size: 1em;
@@ -210,7 +210,7 @@ input.invalid + span {
 
 #successPanel {
   color: white;
-  width: 400px;
+  width: 350px;
   background: #19537b;
   padding: 3em;
   position: absolute;
@@ -226,7 +226,6 @@ input.invalid + span {
 
 #successPanel h1 {
   font-size: 1.5em;
-  color: #fdfd96;
 }
 
 #successPanel p:nth-of-type(1) {

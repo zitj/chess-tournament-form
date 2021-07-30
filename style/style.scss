@@ -19,7 +19,7 @@ body {
 	opacity: 0.4;
 }
 form {
-	@include sharedPanel(300px);
+	@include sharedPanel(300px, 3em 3em 4em 3em);
 	#formHeading {
 		font-weight: 400;
 		margin-top: 0;
@@ -70,7 +70,7 @@ input {
 button {
 	background: $chrome;
 	box-shadow: -3px -3px 3px #ffffff13, 3px 3px 3px #0000004d;
-	color: lighten($lkcBlue, 15%);
+	color: white;
 	margin-top: 30px;
 	width: 285px;
 	font-size: 1em;
@@ -121,11 +121,11 @@ input.invalid + span {
 }
 #successPanel {
 	color: white;
-	@include sharedPanel(400px);
+	@include sharedPanel(350px, 3em);
 	text-align: center;
+
 	h1 {
 		font-size: 1.5em;
-		color: $pastelYellow;
 	}
 	p {
 		&:nth-of-type(1) {

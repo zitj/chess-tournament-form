@@ -1,7 +1,7 @@
-@mixin sharedPanel($width) {
+@mixin sharedPanel($width, $padding) {
 	width: $width;
 	background: $chrome;
-	padding: 3em;
+	padding: $padding;
 	position: absolute;
 	top: 50%;
 	left: 50%;
