@@ -1,0 +1,11 @@
+@mixin sharedPanel($width) {
+	width: $width;
+	background: $chrome;
+	padding: 3em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 20px;
+	box-shadow: -3px -3px 10px #ffffff10, 3px 3px 10px #0000004d;
+}

@@ -45,13 +45,40 @@
 }
 
 body {
-  background: #3b3937;
+  background: #19537b;
   font-family: 'Roboto', sans-serif;
+}
+
+#logo {
+  opacity: 0.9;
+  margin: -10% 18% 5% 18%;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+::-webkit-input-placeholder {
+  color: #a6d0ed;
+  opacity: 0.4;
+}
+
+:-ms-input-placeholder {
+  color: #a6d0ed;
+  opacity: 0.4;
+}
+
+::-ms-input-placeholder {
+  color: #a6d0ed;
+  opacity: 0.4;
+}
+
+::placeholder {
+  color: #a6d0ed;
+  opacity: 0.4;
 }
 
 form {
   width: 300px;
-  background: #3b3937;
+  background: #19537b;
   padding: 3em;
   position: absolute;
   top: 50%;
@@ -109,7 +136,7 @@ label {
 
 input {
   margin-top: 0;
-  background: #3b3937;
+  background: #19537b;
   -webkit-box-shadow: inset -3px -3px 3px #ffffff13, inset 3px 3px 3px #0000004d;
           box-shadow: inset -3px -3px 3px #ffffff13, inset 3px 3px 3px #0000004d;
 }
@@ -120,10 +147,10 @@ input.shake {
 }
 
 button {
-  background: #3b3937;
+  background: #19537b;
   -webkit-box-shadow: -3px -3px 3px #ffffff13, 3px 3px 3px #0000004d;
           box-shadow: -3px -3px 3px #ffffff13, 3px 3px 3px #0000004d;
-  color: #6b6a6a;
+  color: #267ebb;
   margin-top: 30px;
   width: 285px;
   font-size: 1em;
@@ -150,8 +177,8 @@ button:active {
 }
 
 button.valid {
-  background-image: -webkit-gradient(linear, left top, right top, from(#3b3937), color-stop(#565f44), to(#3b3937));
-  background-image: linear-gradient(to right, #3b3937, #565f44, #3b3937);
+  background-image: -webkit-gradient(linear, left top, right top, from(#19537b), color-stop(rgba(153, 205, 50, 0.144)), to(#19537b));
+  background-image: linear-gradient(to right, #19537b, rgba(153, 205, 50, 0.144), #19537b);
   color: white;
 }
 
@@ -179,5 +206,35 @@ input.invalid + span {
   opacity: 1;
   -webkit-transform: translateY(5px);
           transform: translateY(5px);
+}
+
+#successPanel {
+  color: white;
+  width: 400px;
+  background: #19537b;
+  padding: 3em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 20px;
+  -webkit-box-shadow: -3px -3px 10px #ffffff10, 3px 3px 10px #0000004d;
+          box-shadow: -3px -3px 10px #ffffff10, 3px 3px 10px #0000004d;
+  text-align: center;
+}
+
+#successPanel h1 {
+  font-size: 1.5em;
+  color: #fdfd96;
+}
+
+#successPanel p:nth-of-type(1) {
+  font-weight: 300;
+}
+
+#successPanel p:nth-of-type(3) {
+  font-weight: 100;
+  opacity: 0.5;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,43 +1,38 @@
 <?php
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname ="insert";
 
-
-$conn = mysqli_connect($server, $username, $password, $dbname);
+  include('db_connection.php');
 
 
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
-      
-      $sql = "SELECT id, name, phone, email FROM form";
+    $query = "insert into form(name, phone, email) values('$name', '$phone', '$email')";
+    $run = mysqli_query($conn,$query) or die(mysqli_error());
 
-      $result = $conn->query($sql);
-      
-      if ($result->num_rows > 0) {
-      
-        while($row = $result->fetch_assoc()) {
-      
-            if($email == $row["email"]){
-                echo "Е-mail адреса већ постоји!";
-                return;
-            }
-            else{
-                $query = "insert into form(name, phone, email) values('$name', '$phone', '$email')";
-                $run = mysqli_query($conn,$query) or die(mysqli_error());
-                echo "Успешно сте се пријавили!";
-            }
-        }
-      } else {
-        echo "0 results";
-      }
-
-      $conn->close();
+    $conn->close();
     
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style/style.css">
+  <title>Пријава успешна</title>
+</head>
+<body>
+  <div id="successPanel">
+    <h1>Успешно сте се пријавили!</h1>
+    <p>Контактираћемо Вас у најскоријем року.<p>
+    <img src="https://lkc.org.rs/wp-content/uploads/2019/06/lkc-logo-top.png" alt="logo kulturni centar">
+  </div>
+    <script>
+      setTimeout(()=>{
+        window.location.href = "https://lkc.org.rs/";
+      },3000)
+    </script>
+</body>
+</html>

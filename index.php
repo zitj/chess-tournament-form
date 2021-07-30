@@ -11,9 +11,11 @@
 	</head>
 	<body>
 	
-
+		
+		
 		<form action="./php/insert.php" method="post">
-			<p id="formHeading">Пријава за турнир у шаху<br><span>Лесковачки  културни  центар</span></p>
+		<img id='logo' src="https://lkc.org.rs/wp-content/uploads/2019/06/lkc-logo-top.png" alt="logo kulturni centar">
+			<p id="formHeading">Пријава за турнир у шаху</p>
 
 			<div class="inputHolder">
 				<label for="name">Име и презиме</label>

@@ -9,9 +9,21 @@ let formValue = {};
 let formValid = false;
 
 const patterns = {
-	name: /^([A-Za-z.!@?#"$%&:;()đšžćč *\+,\/;\-=[\\\]\^_{|}\u0400-\u04FF]){2,} ([A-Za-z.!@?#"$%&:;()đšžćč *\+,\/;\-=[\\\]\^_{|}<>\u0400-\u04FF]){3,}$/i,
+	name: /^([A-Za-z.!@?#"$%&:;()đšžćč *\+,\/;\-=[\\\]\^_{|}\u0400-\u04FF]){2,} ([A-Za-z.!@?#"$%&:;()đšžćč *\+,\/;\-=[\\\]\^_{|}\u0400-\u04FF]){3,}$/i,
 	phone: /^(\+381) ?(60|61|62|63|64|65|66|69|67|68|16) ?(\d{1,}) ?(\d{1,}) ?(\d{1,})?$/,
 	email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,9})?$/,
+};
+
+const httpGet = (url, callback) => {
+	const request = new XMLHttpRequest();
+
+	request.open('get', url, true);
+
+	request.onload = () => {
+		callback(request);
+	};
+
+	request.send();
 };
 
 const validate = (field, regex) => {
@@ -34,13 +46,9 @@ const formValidityCheck = () => {
 		}
 	}
 
-	if (counter === 3) {
-		formValid = true;
-		btn.classList.add('valid');
-	} else {
-		formValid = false;
-		btn.classList.remove('valid');
-	}
+	counter === 3 ? (formValid = true) : (formValid = false);
+
+	formValid ? btn.classList.add('valid') : btn.classList.remove('valid');
 };
 
 const uniqueEmailCheck = (value) => {
@@ -69,40 +77,26 @@ const addingInvalidClassOnSubmit = () => {
 inputs.forEach((input) => {
 	input.addEventListener('keyup', (e) => {
 		validate(e.target, patterns[e.target.attributes.name.value]);
-		formValidityCheck();
 		formValue[e.target.attributes.name.value] = e.target.value;
+
 		if (e.target.attributes.name.value === 'email') {
 			emailMessage.innerText = 'Email мора садржати симбол @ нпр. korisnik@gmail.com';
 			uniqueEmailCheck(e.target.value);
 		}
+
+		formValidityCheck();
 	});
 });
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
-	if (formValid) {
-		form.submit();
-	} else {
-		addingInvalidClassOnSubmit();
-	}
+	formValid ? form.submit() : addingInvalidClassOnSubmit();
 });
-
-const httpGet = (url, callback) => {
-	const request = new XMLHttpRequest();
-
-	request.open('get', url, true);
-
-	request.onload = () => {
-		callback(request);
-	};
-
-	request.send();
-};
 
 httpGet('php/data.php', (request) => {
 	if (request.response) {
 		arrayOfEmails = request.responseText.replace(/['"\]\[]+/g, '').split(',');
 	} else {
-		console.log('error');
+		alert('Дошло је до грешке.');
 	}
 });

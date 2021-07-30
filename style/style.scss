@@ -1,22 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,900&display=swap');
 @import 'variables';
 @import 'animation';
+@import 'mixins';
 
 body {
 	background: $chrome;
 	font-family: 'Roboto', sans-serif;
 }
 
+#logo {
+	opacity: 0.9;
+	margin: -10% 18% 5% 18%;
+	transform: scale(0.7);
+}
+
+::placeholder {
+	color: lighten($lkcBlue, 50%);
+	opacity: 0.4;
+}
 form {
-	width: 300px;
-	background: $chrome;
-	padding: 3em;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border-radius: 20px;
-	box-shadow: -3px -3px 10px #ffffff10, 3px 3px 10px #0000004d;
+	@include sharedPanel(300px);
 	#formHeading {
 		font-weight: 400;
 		margin-top: 0;
@@ -67,7 +70,7 @@ input {
 button {
 	background: $chrome;
 	box-shadow: -3px -3px 3px #ffffff13, 3px 3px 3px #0000004d;
-	color: rgb(107, 106, 106);
+	color: lighten($lkcBlue, 15%);
 	margin-top: 30px;
 	width: 285px;
 	font-size: 1em;
@@ -91,7 +94,7 @@ button {
 		opacity: 1;
 	}
 	&.valid {
-		background-image: linear-gradient(to right, $chrome, #565f44, $chrome);
+		background-image: linear-gradient(to right, $chrome, rgba(153, 205, 50, 0.144), $chrome);
 		color: white;
 	}
 }
@@ -115,4 +118,22 @@ input + span {
 input.invalid + span {
 	opacity: 1;
 	transform: translateY(5px);
+}
+#successPanel {
+	color: white;
+	@include sharedPanel(400px);
+	text-align: center;
+	h1 {
+		font-size: 1.5em;
+		color: $pastelYellow;
+	}
+	p {
+		&:nth-of-type(1) {
+			font-weight: 300;
+		}
+		&:nth-of-type(3) {
+			font-weight: 100;
+			opacity: 0.5;
+		}
+	}
 }
