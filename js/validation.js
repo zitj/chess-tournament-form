@@ -1,6 +1,10 @@
 const btn = document.querySelector('button');
 const inputs = document.querySelectorAll('input');
 const form = document.querySelector('form');
+const emailMessage = document.getElementById('emailMessage');
+
+let arrayOfEmails = [];
+
 let formValue = {};
 let formValid = false;
 
@@ -29,6 +33,7 @@ const formValidityCheck = () => {
 			counter++;
 		}
 	}
+
 	if (counter === 3) {
 		formValid = true;
 		btn.classList.add('valid');
@@ -36,6 +41,17 @@ const formValidityCheck = () => {
 		formValid = false;
 		btn.classList.remove('valid');
 	}
+};
+
+const uniqueEmailCheck = (value) => {
+	arrayOfEmails.forEach((email) => {
+		if (email === value) {
+			formValid = false;
+			inputs[2].classList.remove('valid');
+			inputs[2].classList.add('invalid');
+			emailMessage.innerText = 'Корисник са овим e-мејлом већ постоји';
+		}
+	});
 };
 
 const addingInvalidClassOnSubmit = () => {
@@ -55,14 +71,38 @@ inputs.forEach((input) => {
 		validate(e.target, patterns[e.target.attributes.name.value]);
 		formValidityCheck();
 		formValue[e.target.attributes.name.value] = e.target.value;
+		if (e.target.attributes.name.value === 'email') {
+			emailMessage.innerText = 'Email мора садржати симбол @ нпр. korisnik@gmail.com';
+			uniqueEmailCheck(e.target.value);
+		}
 	});
 });
 
-btn.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	if (formValid) {
 		form.submit();
 	} else {
 		addingInvalidClassOnSubmit();
+	}
+});
+
+const httpGet = (url, callback) => {
+	const request = new XMLHttpRequest();
+
+	request.open('get', url, true);
+
+	request.onload = () => {
+		callback(request);
+	};
+
+	request.send();
+};
+
+httpGet('php/data.php', (request) => {
+	if (request.response) {
+		arrayOfEmails = request.responseText.replace(/['"\]\[]+/g, '').split(',');
+	} else {
+		console.log('error');
 	}
 });

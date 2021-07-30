@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -11,7 +12,7 @@
 	<body>
 	
 
-		<form action="insert.php" method="post">
+		<form action="./php/insert.php" method="post">
 			<p id="formHeading">Пријава за турнир у шаху<br><span>Лесковачки  културни  центар</span></p>
 
 			<div class="inputHolder">
@@ -27,9 +28,9 @@
 			<div class="inputHolder">
 				<label for="email">E-mail адреса</label>
 				<input type="email" name="email" placeholder="primer@gmail.com" class="input"/>
-				<span>Email мора садржати симбол @ нпр. korisnik@gmail.com</span>
+				<span id="emailMessage">Email мора садржати симбол @ нпр. korisnik@gmail.com</span>
 			</div>
-			<button type="submit">ПОШАЉИ</button>
+			<button type="submit" name="btnSubmit">ПОШАЉИ</button>
 		</form>
 	</body>
 </html>
